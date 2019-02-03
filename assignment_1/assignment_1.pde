@@ -86,4 +86,8 @@ void draw() {
 
 void mousePressed() {
   loop();
+  println("pressed");
+  if (key == 's' || key == 'S'); {
+    saveFrame("creamAnimation.png"); 
+  }
 } 
