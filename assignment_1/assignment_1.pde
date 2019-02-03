@@ -6,6 +6,8 @@ int x = 300;
 PImage cream;
 float offset = 0;
 float easing = 100;
+float y= 100; 
+
 
 
 
@@ -23,6 +25,11 @@ void setup() {
   frameRate(30);
 
   cream = loadImage("cream.jpg");
+
+  stroke(255, 23, 23);
+  noLoop(); 
+
+  y = height * 0.5;
 }
 
 void draw() { 
@@ -58,5 +65,25 @@ void draw() {
   offset += dx * easing;
   tint(255, 127); 
   image(cream, offset, 0);
-   
+
+  line (0, y, width, y); 
+  y=y - 1;
+  if (y < 0) { 
+    y = height;
+  }
+  
+  
+  if (mouseX > width/2) {
+    strokeWeight(20);
+    stroke(255,237 , 95); 
+    fill(245, 76, 30);
+  } else {
+    fill(255, 64, 125);
+    stroke(255, 160, 64);
+    strokeWeight(20);
+  }
 }
+
+void mousePressed() {
+  loop();
+} 
